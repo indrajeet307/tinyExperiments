@@ -1,0 +1,4 @@
+BlinkC.nc	is the implementaion file
+BlinkAppC.nc	is the configuration file
+Generic Components	can be instansiated more than once
+Non Generic Components	can be instansiated only once
