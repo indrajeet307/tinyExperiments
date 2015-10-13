@@ -2,3 +2,22 @@ BlinkC.nc	is the implementaion file
 BlinkAppC.nc	is the configuration file
 Generic Components	can be instansiated more than once
 Non Generic Components	can be instansiated only once
+
+Modules
+States
+
+Interfaces types:					
+Commands					==	use CALL keyword to invoke the interface function they are synchronus
+Events						==	use SIGNAL keyword to invoke the interfaced function
+
+Execution Models:
+Tasks						== use POST keyword to invoke the tasks, they are asynchronus
+								a task queue is maintained internally, which is processed in FIFO manner
+
+Internal Funcations
+
+Split-Phase Operations		== does not tie up the stack
+							== keeps system responsive
+							== reduces stack burden
+							== parallel execution
+							== makes the implementaion verbose

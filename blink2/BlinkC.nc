@@ -4,6 +4,8 @@ module BlinkC @safe()
 	uses interface Leds;
 	uses interface Boot;
 }
+// This example is different from blink because
+// here we are using only one timer0 along with counter
 implementation
 {
 	uint16_t counter = 0;
