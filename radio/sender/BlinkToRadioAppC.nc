@@ -1,4 +1,3 @@
-
 #include <Timer.h>
 #include "BlinkToRadio.h"
 
@@ -24,3 +23,4 @@ implementation {
 	App.AMSend -> AMSenderC;
 	App.AMControl -> ActiveMessageC;
 }
+

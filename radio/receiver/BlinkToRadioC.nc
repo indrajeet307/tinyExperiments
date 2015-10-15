@@ -1,5 +1,6 @@
 #include <Timer.h>
 #include "BlinkToRadio.h"
+#include "printf.h"
 
 module BlinkToRadioC @safe() {
 	uses interface Boot;
@@ -40,6 +41,8 @@ implementation {
 		if(len == sizeof(BlinkToRadioMsg)){
 			BlinkToRadioMsg *btrpkt = (BlinkToRadioMsg*) payload;
 			call Leds.set(btrpkt->counter);
+			printf("%d \n",btrpkt->counter);
+			printfflush();
 		}
 		return msg;
 	}

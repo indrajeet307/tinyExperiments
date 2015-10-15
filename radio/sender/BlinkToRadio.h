@@ -3,7 +3,7 @@
 	
 enum{	
 	AM_BLINKRAIO = 6,
-	TIMER_PERIOD_MILLI = 250
+	TIMER_PERIOD_MILLI = 1250
 };
 
 // struct to hold the payload
