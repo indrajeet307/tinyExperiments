@@ -1,0 +1,45 @@
+Before tinyOS 2 they used a message structure called TOS_Msg
+which turned out to be not very useful so they switched to 
+message_t from version 2
+
+typedef nx_struct message_t{
+	nx_uint8_t header[sizeof(message_header_t)];
+	nx_uint8_t data[TOSH_DATA_LENGTH];
+	nx_uint8_t footer[sizeof(message_footer_t)];
+	nx_uint8_t metadata[sizeof(message_metadata_t)];
+}message_t;
+NOTE:
+	All the data members are opaque and must not be accessed directly
+	Instead Use the interfaces
+
+Basic Communication Interfaces:
+	1.Packet
+	2.Send
+	3.Receive
+	4.PacketAcknowledgements
+	5.RadioTimeStamping
+
+Active Message Interface:(AM)
+	1.AMPacket
+	2.AMSend
+
+Components:
+	The following components implement the above mentioned Interfaces,
+	1. AMReceiverC
+	2. AMSenderC
+	3. AMSnooperC
+	4. AMSnoppingReceiverC
+	5. ActiveMessageAddressC
+	ActiveMessageC for micaZ is implemented by CC240ActiveMessageC
+
+Steps Create a program
+	1. Identify the interfaces and components that provide access to radio
+		and allow manipulating message_t
+	2. Modify the implementation to add the uses statements
+	3. Add the new interfaces and add the initialization code needed by the 
+		interfaces
+	4. Add calls to the components required by the application
+	5. Implement any interfaces we plan to use
+	6. Implementation bock of the appC should be updated for each component 
+		we use that provides one of the interfaces we chose earlier.
+	7. Finally we need to wire the interface to the components
