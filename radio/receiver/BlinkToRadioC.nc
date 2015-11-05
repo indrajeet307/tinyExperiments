@@ -15,7 +15,7 @@ module BlinkToRadioC @safe() {
 
 implementation {
 	uint16_t counter = 0;
-	bool busy = FALSE;	// is the if radio is busy sending
+	bool busy = FALSE;	// is true if radio is busy sending
 	
 	event void Boot.booted() {
 		//call Timer0.startPeriodic(TIMER_PERIOD_MILLI);
