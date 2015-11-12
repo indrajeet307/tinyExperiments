@@ -40,13 +40,16 @@ implementation{
 			RSSIMsg* bufpkt = (RSSIMsg*) (call
 			Packet.getPayload(&pkt,sizeof(RSSIMsg)));
 			
-			bufpkt->srcnodeid = TOS_NODE_ID;
-			bufpkt->dstnodeid = TOS_NODE_ID-1;
-
-			if( call AMSend.send(TOS_NODE_ID-1,&pkt,sizeof(RSSIMsg)) == SUCCESS){
-				busy = TRUE;
-				call Leds.led0Toggle(); // packet sent
+			if(TOS_NODE_ID == 2)
+			{
+				bufpkt->links.srcnid = 2;
+				bufpkt->links.dstnid = 1;
+				if( call AMSend.send(1,&pkt,sizeof(RSSIMsg)) == SUCCESS){
+					busy = TRUE;
+					call Leds.led0Toggle(); // packet sent
+				}				
 			}
+			
 		}
 	}
 
@@ -65,15 +68,9 @@ implementation{
 				RSSIMsg* bufpkt = (RSSIMsg*) (call
 				Packet.getPayload(msg,sizeof(RSSIMsg)));
 				// get the rssi value from the packet and display it
-				printf("%2d %4d %2d\n",bufpkt->srcnodeid,call
-				CC2420Packet.getRssi(msg),bufpkt->dstnodeid);
+				//printf("Link1: %2d == %4d ==%2d.\n", bufpkt->links[0].srcnid,bufpkt->rssi1,bufpkt->links[0].dstnid);
+				printf("%d %d %d\n", bufpkt->links.srcnid,call CC2420Packet.getRssi(msg),bufpkt->links.dstnid);
 				call Leds.led1Toggle();
-			}
-			else{
-				if( call AMSend.send(TOS_NODE_ID-1,msg,sizeof(RSSIMsg)) == SUCCESS){
-					busy = TRUE;
-					call Leds.led2Toggle();
-				}
 			}
 		}
 		return msg;

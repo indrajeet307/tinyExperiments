@@ -5,9 +5,13 @@ enum{
 	TIMER_PERIOD_MILLI = 15,
 };
 
+typedef nx_struct link{
+	nx_uint8_t srcnid;
+	nx_uint8_t dstnid;
+}link_t;
+
 typedef nx_struct RSSIMsg{
-	nx_uint16_t srcnodeid;
-	nx_uint16_t dstnodeid;
+	link_t links;
 }RSSIMsg;
 
 #endif
