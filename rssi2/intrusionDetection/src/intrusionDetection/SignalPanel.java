@@ -1,10 +1,13 @@
 package intrusionDetection;
+/*
+ * MOST OF THIS CODE TAKEN FROM http://shulgadim.blogspot.in/2012/07/real-time-signal-drawing.html
+ * THANK YOU Dmitry Shulga  
+ * */
 import java.awt.*;
 import java.awt.image.*;
 import java.awt.geom.Line2D;
 import intrusionDetection.Buffer;
 import javax.swing.JPanel;
-
 public class SignalPanel extends JPanel{
 	 /**
 	 * 

@@ -4,7 +4,10 @@ import net.tinyos.message.Message;
 import net.tinyos.message.MessageListener;
 import net.tinyos.message.MoteIF;
 import net.tinyos.tools.PrintfMsg;
-
+/*
+ * MOST OF THIS CODE TAKEN FROM http://shulgadim.blogspot.in/2012/07/real-time-signal-drawing.html
+ * THANK YOU Dmitry Shulga  
+ * */
 public class Model implements MessageListener {
 	 private int wcounter = 0;
 	 private int rcounter = 0;

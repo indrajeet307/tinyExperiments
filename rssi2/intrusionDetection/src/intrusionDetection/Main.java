@@ -1,7 +1,9 @@
 package intrusionDetection;
-
+/*
+ * MOST OF THIS CODE TAKEN FROM http://shulgadim.blogspot.in/2012/07/real-time-signal-drawing.html
+ * THANK YOU Dmitry Shulga  
+ * */
 import javax.swing.*;
-
 import net.tinyos.message.MoteIF;
 import net.tinyos.packet.BuildSource;
 import net.tinyos.packet.PhoenixSource;
