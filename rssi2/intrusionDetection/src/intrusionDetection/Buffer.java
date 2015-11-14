@@ -1,5 +1,8 @@
 package intrusionDetection;
-
+/*
+ * MOST OF THIS CODE TAKEN FROM http://shulgadim.blogspot.in/2012/07/real-time-signal-drawing.html
+ * THANK YOU Dmitry Shulga  
+ * */
 public class Buffer {
 	private int N;  
     private int iWrite = 0;
