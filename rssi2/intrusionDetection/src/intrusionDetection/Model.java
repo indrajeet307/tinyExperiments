@@ -18,7 +18,7 @@ public class Model implements MessageListener {
 	 public Model(MoteIF mi){
 		 this.moteIF = mi;
 		 this.moteIF.registerListener(new PrintfMsg(), this);
-		 this.buff = new int[128];
+		 this.buff = new int[32];
 	 }
      public double getSignalSample(){         
     	 if(rcounter==0 && wcounter==0)
@@ -26,7 +26,7 @@ public class Model implements MessageListener {
     	 else if(rcounter == wcounter)
     		 return buff[rcounter];
     	 else {
-    		 return buff[rcounter++%128];
+    		 return buff[rcounter++%32];
     	 }
     		 
      }
@@ -43,7 +43,7 @@ public class Model implements MessageListener {
 	      if((nextChar == ' ' && rf)){
 	    	  rf=!rf;
 	    	  System.out.println(val);
-	    	  buff[wcounter%128]=val;	    	  
+	    	  buff[wcounter%32]=val;	    	  
 	    	  wcounter++;
 	    	  val=0;
 	      }

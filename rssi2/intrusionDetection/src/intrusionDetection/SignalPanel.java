@@ -43,12 +43,12 @@ public class SignalPanel extends JPanel{
     graphics2d.setColor(Color.DARK_GRAY);    
     graphics2d.clearRect(0, 0, width, height);         
     for(int i=0; i<buffer.getLength(); i++){
-          double sample = buffer.get();                           
+          double sample = (-1)*buffer.get();                          
           graphics2d.draw(new Line2D.Double(
                            buffer.getLength()-i, 
-                           sampleOld +height/2,
+                           sampleOld +height/1.5,
                            buffer.getLength()-(i+1),
-                           sample+ height/2));                           
+                           sample+ height/1.5));                           
            sampleOld = sample;                      
     }    
     repaint();            
