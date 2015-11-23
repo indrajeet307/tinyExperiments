@@ -1,4 +1,4 @@
-zinclude<Timer.h>
+#include<Timer.h>
 #include<stdio.h>
 #include<string.h>
 #include "WinMessage.h"
@@ -57,7 +57,6 @@ implementation{
 	event void AMSend.sendDone(message_t *m,error_t error){
 		if( &pkt == m){
 			printf("Sent Packet\n");
-			//call Leds.led1Toggle();
 			busy = FALSE;
 		}
 	}
@@ -70,7 +69,7 @@ implementation{
 				// added code here to check the window of BSIZE
 				// take averge in this window to decide intrusion
 				// TODO experiment and decide how much OFFSET is acceptable
-				//		MULTICHANNEL	:(
+				//		MULTICHANNEL	:)
 				//		MULTIHOP		:)
 				int rval = call CC2420Packet.getRssi(msg);
 				if(flag)
