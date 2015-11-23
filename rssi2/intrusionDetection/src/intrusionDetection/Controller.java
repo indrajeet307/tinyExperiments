@@ -17,7 +17,7 @@ public class Controller {
      public Controller(Model model, View view){                    
           this.model = model;
           this.view = view;
-          this.b = new Buffer(400);          
+          this.b = new Buffer(1000);          
           timer = new Timer(30, new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                      processing();}

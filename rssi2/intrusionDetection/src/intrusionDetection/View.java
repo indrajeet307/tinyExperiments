@@ -15,7 +15,7 @@ public class View extends JFrame{
     public View(){                     
         setTitle("Draw real-time signal");      
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 200);       
+        setSize(1000, 400);       
         signalPanel = new SignalPanel();                 
         getContentPane().add(signalPanel);               
         setVisible(true);        

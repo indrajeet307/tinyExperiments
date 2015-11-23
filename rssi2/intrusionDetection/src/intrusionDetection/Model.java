@@ -9,18 +9,20 @@ import net.tinyos.tools.PrintfMsg;
  * THANK YOU Dmitry Shulga  
  * */
 public class Model implements MessageListener {
-	 private int wcounter = 0;
-	 private int rcounter = 0;
+	 //private int wcounter = 0;
+	// private int rcounter = 0;
 	 //private int type = 0;
 	 private MoteIF moteIF; 
-	 private int buff[];
+	 //private int buff[];
+	 private int buff;
 	 
 	 public Model(MoteIF mi){
 		 this.moteIF = mi;
 		 this.moteIF.registerListener(new PrintfMsg(), this);
-		 this.buff = new int[32];
+		 this.buff = 0;
 	 }
-     public double getSignalSample(){         
+     public double getSignalSample(){
+    	 /*
     	 if(rcounter==0 && wcounter==0)
     		 return 0;
     	 else if(rcounter == wcounter)
@@ -28,7 +30,8 @@ public class Model implements MessageListener {
     	 else {
     		 return buff[rcounter++%32];
     	 }
-    		 
+    	*/
+    	 return buff;
      }
 	@Override
 	public void messageReceived(int to, Message m) {
@@ -43,8 +46,9 @@ public class Model implements MessageListener {
 	      if((nextChar == ' ' && rf)){
 	    	  rf=!rf;
 	    	  System.out.println(val);
-	    	  buff[wcounter%32]=val;	    	  
-	    	  wcounter++;
+	    	  //buff[wcounter%32]=val;
+	    	  buff = val;
+	    	  //wcounter++;
 	    	  val=0;
 	      }
 	      if(nextChar !=0 && nextChar != '-' && rf ){
