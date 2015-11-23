@@ -17,7 +17,7 @@ implementation{
 	components PrintfC,SerialStartC;
 	components CC2420PacketC;// Specific Radio Module to get RSSI value
 	components CC2420ControlC;// Specific Radio Module to get/set channel value
-	components new TimerMilliC() as Timer1;
+	components new TimerMilliC() as Timer1;// extra timer for channel
 
 
 	App.Boot -> MainC;
