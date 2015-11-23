@@ -1,0 +1,5 @@
+This code is working.
+Use two motes one as listener(2) and other as speaker(1)
+let listner be connected to laptop
+
+check the Makefile to see the code for power setting
